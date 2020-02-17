@@ -1,8 +1,5 @@
 
-
 	 var visible="visible";
-	 var left=0;
-	 var ope=false;
 	 window.onload=function(){
 	     document.getElementById('video-btn').onclick=function (){
 	     if(visible=="visible")
@@ -11,34 +8,8 @@
 	     }else{
 	         visible="visible";
 	     }
-	     try{
-     banner_wave_1.style="left: "+left+"px; visibility: "+visible+";";
-     }catch(Error){}
-     try{
-     banner_wave_2.style="left: "+(left+80)+"px; visibility: "+visible+";";
-     }catch(Error){}
 	     };   
 	 };
-     function mainFunc(){
-    	try{
-    		banner_wave_1.style="left: "+left+"px; visibility: "+visible+";";
-    	}catch(Error){}
-    	try{
-    		banner_wave_2.style="left: "+(left+80)+"px; visibility: "+visible+";";
-    	}catch(Error){}
-    	if(left>=-800 && !ope)
-    	{
-    		left-=3;
-    	}else{
-    		ope=true;
-    		left+=3;
-    		if(left>=0)
-    		{
-        		ope=false;
-    		}
-    	}
-    }
-    this.setInterval(mainFunc,150);
     function headertop_down () {
 		var coverOffset = $('#content').offset().top
 		$('html,body').animate({
