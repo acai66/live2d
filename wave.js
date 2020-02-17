@@ -8,6 +8,12 @@
 	     }else{
 	         visible="visible";
 	     }
+		try{
+     			banner_wave_1.style="visibility: "+visible+";";
+     		}catch(Error){}
+     		try{
+     			banner_wave_2.style="visibility: "+visible+";";
+     		}catch(Error){}
 	     };   
 	 };
     function headertop_down () {
