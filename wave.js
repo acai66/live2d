@@ -47,7 +47,6 @@
 	}
 
 var div = document.getElementsByClassName("headertop")[0];
-alert(div);
 var wave1 = document.createElement("div");  
 wave1.setAttribute('id', 'banner_wave_1'); 
 var wave2 = document.createElement("div");  
