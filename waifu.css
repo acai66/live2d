@@ -1,3 +1,4 @@
+
 .toggle-base {
 	background-color: #fa0;
 	border-radius: 5px;
@@ -11,7 +12,7 @@
 	transition: margin-left 1s;
 	width: 60px;
 	writing-mode: vertical-rl;
-	z-index: 0;
+	z-index: 5;
 }
 
 #waifu-toggle {
@@ -37,7 +38,7 @@
 	bottom: -1000px;
 	left: 50px;
 	line-height: 0;
-	position fixed;
+	position: fixed;
 	transform: translateY(3px);
 	transition: transform .3s ease-in-out, bottom 3s ease-in-out;
 	z-index: 1;
