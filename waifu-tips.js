@@ -272,6 +272,7 @@ function initWidget(config, apiPath = "/") {
 	document.getElementById("waifu-change").addEventListener("click", () => {
 		document.querySelector("#waifu-tool .fa-user-circle").click();
 	});
+	document.getElementById("waifu-toggle").classList.add("waifu-toggle-default");
 	var toggle = document.getElementById("waifu-toggle");
 	toggle.addEventListener("click", () => {
 		if (document.getElementById("waifu").style.bottom == "0px"){
