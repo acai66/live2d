@@ -276,14 +276,14 @@ function initWidget(config, apiPath = "/") {
 	toggle.addEventListener("click", () => {
 		if (document.getElementById("waifu").style.bottom == "0px"){
 			document.getElementById("waifu-toggle").classList.add("down1");
-			document.getElementById("waifu-switch").classList.add("down2");
-			document.getElementById("waifu-change").classList.add("down3");
+			document.getElementById("waifu-switch").classList.add("hide-tool");
+			document.getElementById("waifu-change").classList.add("hide-tool");
 			document.querySelector("#waifu-tool .fa-times").click();	
 		}
 		else{
 			document.getElementById("waifu-toggle").classList.remove("down1");
-			document.getElementById("waifu-switch").classList.remove("down2");
-			document.getElementById("waifu-change").classList.remove("down3");
+			document.getElementById("waifu-switch").classList.remove("hide-tool");
+			document.getElementById("waifu-change").classList.remove("hide-tool");
 			if (toggle.getAttribute("first-time")) {
 				loadWidget(config);
 				toggle.removeAttribute("first-time");

@@ -9,14 +9,16 @@
 	margin-left: -40px;
 	padding: 5px 2px 5px 5px;
 	position: fixed;
-	transition: margin-left 1s;
-	transition: bottom 1s;
+	transition: margin-left 1s, bottom 1s, visibility;
 	width: 60px;
 	writing-mode: vertical-rl;
 	z-index: 5;
 }
 
 #waifu-toggle {
+	
+}
+.waifu-toggle-default {
 	bottom: 134px;
 }
 
@@ -30,16 +32,12 @@
 	bottom: 66px;
 }
 
+.hide-tool {
+	visibility: hidden;
+}
 .down1{
 	bottom: 66px;
 }
-.down2{
-	bottom: 32px;
-}
-.down3{
-	bottom: -2px;
-}
-
 
 .toggle-base:hover {
 	margin-left: -20px;
