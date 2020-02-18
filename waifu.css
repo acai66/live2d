@@ -24,11 +24,15 @@
 
 #waifu-switch {
 	background-color: #f7bb4d;
+}
+.waifu-switch-default {
 	bottom: 100px;
 }
 
 #waifu-change {
 	background-color: #eed099;
+}
+.waifu-change-default {
 	bottom: 66px;
 }
 
