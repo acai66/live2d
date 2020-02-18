@@ -56,10 +56,9 @@ function loadWidget(config) {
 		document.querySelector("#waifu-tool .fa-times").addEventListener("click", () => {
 			localStorage.setItem("waifu-display", Date.now());
 			showMessage("愿你有一天能与重要的人重逢。", 2000, 11);
-			document.getElementById("waifu").style.bottom = "-500px";
+			document.getElementById("waifu").style.bottom = "-400px";
 			setTimeout(() => {
 				document.getElementById("waifu").style.display = "none";
-				document.getElementById("waifu-toggle").classList.add("waifu-toggle-active");
 			}, 3000);
 		});
 		var devtools = () => {};
@@ -258,27 +257,42 @@ function initWidget(config, apiPath = "/") {
 			apiPath
 		};
 	}
-	document.body.insertAdjacentHTML("beforeend", `<div id="waifu-toggle">
+	document.body.insertAdjacentHTML("beforeend", `<div id="waifu-toggle" class="toggle-base">
 			<span>看板娘</span>
+		</div>
+		<div id="waifu-switch" class="toggle-base">
+			<span>变装</span>
+		</div>
+		<div id="waifu-change" class="toggle-base">
+			<span>切换</span>
 		</div>`);
+	document.getElementById("waifu-switch").addEventListener("click", () => {
+		document.querySelector("#waifu-tool .fa-street-view").click();
+	});
+	document.getElementById("waifu-change").addEventListener("click", () => {
+		document.querySelector("#waifu-tool .fa-user-circle").click();
+	});
 	var toggle = document.getElementById("waifu-toggle");
 	toggle.addEventListener("click", () => {
-		toggle.classList.remove("waifu-toggle-active");
-		if (toggle.getAttribute("first-time")) {
-			loadWidget(config);
-			toggle.removeAttribute("first-time");
-		} else {
-			localStorage.removeItem("waifu-display");
-			document.getElementById("waifu").style.display = "";
-			setTimeout(() => {
-				document.getElementById("waifu").style.bottom = 0;
-			}, 0);
+		if (document.getElementById("waifu").style.bottom == "0px"){
+			document.querySelector("#waifu-tool .fa-times").click();	
+		}
+		else{
+			if (toggle.getAttribute("first-time")) {
+				loadWidget(config);
+				toggle.removeAttribute("first-time");
+			} else {
+				localStorage.removeItem("waifu-display");
+				document.getElementById("waifu").style.display = "";
+				setTimeout(() => {
+					document.getElementById("waifu").style.bottom = 0;
+				}, 0);
+			}		
 		}
 	});
 	if (localStorage.getItem("waifu-display") && Date.now() - localStorage.getItem("waifu-display") <= 86400000) {
 		toggle.setAttribute("first-time", true);
 		setTimeout(() => {
-			toggle.classList.add("waifu-toggle-active");
 		}, 0);
 	} else {
 		loadWidget(config);
