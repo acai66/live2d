@@ -93,6 +93,7 @@
 }
 
 #waifu-tool {
+	display: none;
 	color: #aaa;
 	opacity: 0;
 	position: absolute;
