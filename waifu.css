@@ -338,3 +338,241 @@
 	}
 }
 
+.prpr {
+ position:fixed;
+ bottom:0;
+ left:0;
+ z-index:99;
+ font-size:0;
+ transition:all .3s ease-in-out;
+ -webkit-transform:translateY(3px);
+ transform:translateY(3px);
+ cursor:grab;
+ user-select:none
+}
+.prpr:hover {
+ -webkit-transform:translateY(0);
+ transform:translateY(0)
+}
+.prpr:active {
+ cursor:grabbing
+}
+@media(max-width:860px) {
+ .prpr {
+  transform:scale(.8) translate(-30px,31px)
+ }
+ .prpr:hover {
+  -webkit-transform:scale(.8) translate(-30px,31px);
+  transform:scale(.8) translate(-30px,31px)
+ }
+}
+@media(max-width:560px) {
+ .prpr {
+  transform:scale(.5) translate(-150px,125px)
+ }
+ .prpr:hover {
+  -webkit-transform:scale(.5) translate(-150px,125px);
+  transform:scale(.5) translate(-150px,125px)
+ }
+}
+.prpr #live2d {
+ position:relative;
+ z-index:200
+}
+.live2d-tips {
+ opacity:0;
+ width:250px;
+ height:auto;
+ min-height:70px;
+ margin:-20px 20px;
+ padding:5px 10px;
+ border-radius:12px;
+ box-sizing:border-box;
+ box-shadow:0 0 2px 0 rgba(0,0,0,.12),0 2px 2px 0 rgba(0,0,0,.24);
+ transition:box-shadow .2s ease;
+ background:#fafafa;
+ color:#333;
+ font-size:12px;
+ text-overflow:ellipsis;
+ overflow:hidden;
+ position:absolute;
+ animation-delay:5s;
+ animation-duration:50s;
+ animation-iteration-count:infinite;
+ animation-name:shake;
+ animation-timing-function:ease-in-out
+}
+.live2d-tool {
+ position:fixed;
+ bottom:0;
+ left:0;
+ width:auto;
+ height:auto;
+ z-index:100;
+ border-radius:5px;
+ font-size:13px;
+ cursor:pointer;
+ font-family:Ubuntu
+}
+@media(min-width:861px) {
+ .live2d-tool {
+  border-radius:0 5px 5px 0;
+  width:35px;
+  left:-17px;
+  color:#fff;
+  font-size:13px;
+  padding:5px 0;
+  padding-top:5px;
+  padding-right:0;
+  padding-bottom:5px;
+  padding-left:17px;
+  font-weight:700;
+  z-index:99;
+  visibility:visible;
+  writing-mode:vertical-rl;
+  transiton-property:left,bottom;
+  transition-duration:.5s,.5s
+ }
+ .live2d-tool:hover {
+  left:0
+ }
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ .isWebKit .live2d-tool {
+  position:fixed;
+  left:0;
+  width:auto;
+  height:auto;
+  z-index:100;
+  border-radius:5px;
+  font-size:13px;
+  cursor:pointer
+ }
+ @media(min-width:861px) {
+  .isWebKit .live2d-tool {
+   border-radius:0 5px 5px 0;
+   width:35px;
+   margin-left:-35px;
+   color:#fff;
+   font-size:13px;
+   padding:5px 0;
+   padding-top:5px;
+   padding-right:0;
+   padding-bottom:5px;
+   padding-left:17px;
+   font-weight:700;
+   z-index:99;
+   writing-mode:vertical-rl;
+   transiton-property:margin-left,bottom;
+   transition-duration:.5s,.5s
+  }
+  .isWebKit .live2d-tool:hover {
+   margin-left:-17px
+  }
+ }
+}
+@media(max-width:860px) {
+ .live2d-tool {
+  padding:0 5px
+ }
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ .live2d-tool {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:auto;
+  height:auto;
+  z-index:100;
+  border-radius:5px;
+  font-size:13px;
+  cursor:pointer
+ }
+ @media(min-width:861px) {
+  .live2d-tool {
+   border-radius:0 5px 5px 0;
+   width:35px;
+   left:-17px;
+   color:#fff;
+   font-size:13px;
+   padding:5px 0;
+   padding-top:5px;
+   padding-right:0;
+   padding-bottom:5px;
+   padding-left:0;
+   font-weight:700;
+   z-index:99;
+   writing-mode:vertical-rl;
+   transiton-property:margin-left,bottom;
+   transition-duration:.5s,.5s
+  }
+  .live2d-tool:hover {
+   margin-left:0
+  }
+ }
+}
+@supports(-ms-ime-align:auto) {
+ .live2d-tool {
+  margin-left:0;
+  left:-17px;
+  transiton-property:left,bottom
+ }
+ .live2d-tool:hover {
+  margin-left:0
+ }
+}
+.live2d-tool .keys {
+ position:relative
+}
+.hide-live2d {
+ visibility:visible
+}
+.close-live2d {
+ visibility:hidden
+}
+.live2d-pio,
+.live2d-tia {
+ visibility:hidden
+}
+.switch-live2d {
+ visibility:hidden
+}
+.save-live2d {
+ visibility:hidden
+}
+@media(min-width:861px) {
+ .hide-live2d {
+  background-color:#16a085;
+  bottom:185px;
+  visibility:visible;
+  min-height:38.75px
+ }
+ .close-live2d {
+  background-color:#b854d4;
+  bottom:21px;
+  visibility:visible;
+  min-height:45px
+ }
+ .live2d-pio,
+ .live2d-tia {
+  background-color:#c3a6cb;
+  bottom:156px;
+  visibility:visible;
+  min-height:20px
+ }
+ .switch-live2d {
+  background-color:#16a;
+  bottom:105px;
+  visibility:visible;
+  min-height:51px
+ }
+ .save-live2d {
+  background-color:orange;
+  bottom:66px;
+  visibility:visible;
+  min-height:39.3px
+ }
+}
+.hide-live2d-tool {
+ bottom:15px
+}

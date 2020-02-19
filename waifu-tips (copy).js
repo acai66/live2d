@@ -3,28 +3,6 @@
  * https://github.com/stevenjoezhang/live2d-widget
  */
 
-function setCookie(e, t, i) {
-        var o = "";
-        if (i) {
-                var a = new Date; a.setTime(a.getTime() + 24 * i * 60 * 60 * 1e3);
-                o = "; expires=" + a.toUTCString();
-        }
-        document.cookie = e + "acai" + "=" + (t || "") + o + "; path=/";
-}
-function getCookie(e) {
-        for (var t = e + "acai" + "=",
-        i = document.cookie.split(";"), o = 0; o < i.length; o++) {
-                for (var a = i[o];
-                " " == a.charAt(0);) a = a.substring(1, a.length);
-	if (0 == a.indexOf(t)) 
-		return a.substring(t.length, a.length);
-        }
-        return null
-}
-function removeCookie(e) {
-        document.cookie = e + "acai" + "=; Max-Age=-99999999;"
-}
-
 function loadWidget(config) {
 	let { waifuPath, apiPath, cdnPath } = config;
 	let useCDN = false, modelList;
@@ -279,38 +257,45 @@ function initWidget(config, apiPath = "/") {
 			apiPath
 		};
 	}
-	document.body.insertAdjacentHTML("beforeend", `<div class="live2d-tool hide-live2d no-select" id="show_model"><div class="keys">Hide</div></div>
-		<div class="live2d-tool live2d-pio no-select" id="switch_live2d"><div class="keys">Tia</div></div>
-		<div class="live2d-tool switch-live2d no-select" id="switch_model"><div class="keys">Switch</div></div>
-		<div class="live2d-tool save-live2d no-select" id="save_pic"><div class="keys">Save</div></div>
-		`);
-	document.getElementById("switch_model").addEventListener("click", () => {
+	document.body.insertAdjacentHTML("beforeend", `<div id="waifu-toggle" class="toggle-base">
+			<span>看板娘</span>
+		</div>
+		<div id="waifu-switch" class="toggle-base">
+			<span>变装</span>
+		</div>
+		<div id="waifu-change" class="toggle-base">
+			<span>切换</span>
+		</div>`);
+	document.getElementById("waifu-switch").addEventListener("click", () => {
 		document.querySelector("#waifu-tool .fa-street-view").click();
 	});
-	document.getElementById("switch_live2d").addEventListener("click", () => {
+	document.getElementById("waifu-change").addEventListener("click", () => {
 		document.querySelector("#waifu-tool .fa-user-circle").click();
 	});
-	//document.getElementById("waifu-toggle").classList.add("waifu-toggle-default");
-	//document.getElementById("waifu-switch").classList.add("waifu-switch-default");
-	//document.getElementById("waifu-change").classList.add("waifu-change-default");
-	var toggle = document.getElementById("show_model");
+	document.getElementById("waifu-toggle").classList.add("waifu-toggle-default");
+	document.getElementById("waifu-switch").classList.add("waifu-switch-default");
+	document.getElementById("waifu-change").classList.add("waifu-change-default");
+	var toggle = document.getElementById("waifu-toggle");
 	toggle.addEventListener("click", () => {
-		"Hide" == getCookie("live2d") ? setTimeout(function() {
-                ($(".hide-live2d").css("bottom", "111px"), $(".close-live2d").css("bottom", "66px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").addClass("hide-live2d-tool")),
-                $(".hide-live2d .keys").html("Show"),
-		document.querySelector("#waifu-tool .fa-times").click(),
-                setCookie("live2d", "Show", 7)
-        },
-        10) : setTimeout(function() {
-                ($(".hide-live2d").css("bottom", "185px"), $(".close-live2d").css("bottom", "21px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").removeClass("hide-live2d-tool")),
-                $(".hide-live2d .keys").html("Hide"),
-		localStorage.removeItem("waifu-display"),
-				document.getElementById("waifu").style.display = "",
-				document.getElementById("waifu").style.bottom = 0,
-                setCookie("live2d", "Hide", 7),
-                setCookie("dontwantlive2d", "no", 7)
-        },
-        10)
+		if (document.getElementById("waifu").style.bottom == "0px"){
+			document.getElementById("waifu-toggle").classList.add("down1");
+			document.getElementById("waifu-switch").classList.add("down2");
+			document.getElementById("waifu-change").classList.add("down3");
+			document.querySelector("#waifu-tool .fa-times").click();	
+		}
+		else{
+			document.getElementById("waifu-toggle").classList.remove("down1");
+			document.getElementById("waifu-switch").classList.remove("down2");
+			document.getElementById("waifu-change").classList.remove("down3");
+			if (toggle.getAttribute("first-time")) {
+				loadWidget(config);
+				toggle.removeAttribute("first-time");
+			} else {
+				localStorage.removeItem("waifu-display");
+				document.getElementById("waifu").style.display = "";
+				document.getElementById("waifu").style.bottom = 0;
+			}		
+		}
 	});
 	if (localStorage.getItem("waifu-display") && Date.now() - localStorage.getItem("waifu-display") <= 86400000) {
 		toggle.setAttribute("first-time", true);
