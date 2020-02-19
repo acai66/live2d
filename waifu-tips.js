@@ -35,9 +35,7 @@ function loadWidget(config) {
 	if (!apiPath.endsWith("/")) apiPath += "/";
 	localStorage.removeItem("waifu-display");
 	sessionStorage.removeItem("waifu-text");
-	document.body.insertAdjacentHTML("beforeend", `<div id="waifu">
-			<div id="waifu-tips"></div>
-			<canvas id="live2d" width="300" height="300"></canvas>
+	document.body.insertAdjacentHTML("beforeend", `<div class="prpr" style="visibility: visible;"><div class="live2d-tips"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas></div>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
 				<span class="fa fa-lg fa-paper-plane"></span>
@@ -50,7 +48,7 @@ function loadWidget(config) {
 		</div>`);
 	// https://stackoverflow.com/questions/24148403/trigger-css-transition-on-appended-element
 	setTimeout(() => {
-		document.getElementById("waifu").style.bottom = 0;
+		document.getElementById("prpr").style.bottom = 0;
 	}, 0);
 
 	(function registerEventListener() {
@@ -78,9 +76,9 @@ function loadWidget(config) {
 		document.querySelector("#waifu-tool .fa-times").addEventListener("click", () => {
 			localStorage.setItem("waifu-display", Date.now());
 			showMessage("愿你有一天能与重要的人重逢。", 2000, 11);
-			document.getElementById("waifu").style.bottom = "-400px";
+			document.getElementById("prpr").style.bottom = "-400px";
 			setTimeout(() => {
-				// document.getElementById("waifu").style.display = "none";
+				// document.getElementById("prpr").style.display = "none";
 			}, 3000);
 		});
 		var devtools = () => {};
@@ -305,8 +303,8 @@ function initWidget(config, apiPath = "/") {
                 ($(".hide-live2d").css("bottom", "185px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").removeClass("hide-live2d-tool")),
                 $(".hide-live2d .keys").html("Hide"),
 		localStorage.removeItem("waifu-display"),
-				document.getElementById("waifu").style.display = "",
-				document.getElementById("waifu").style.bottom = 0,
+				document.getElementById("prpr").style.display = "",
+				document.getElementById("prpr").style.bottom = 0,
                 setCookie("live2d", "Hide", 7),
                 setCookie("dontwantlive2d", "no", 7)
         },
