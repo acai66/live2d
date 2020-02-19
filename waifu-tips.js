@@ -35,7 +35,7 @@ function loadWidget(config) {
 	if (!apiPath.endsWith("/")) apiPath += "/";
 	localStorage.removeItem("waifu-display");
 	sessionStorage.removeItem("waifu-text");
-	document.body.insertAdjacentHTML("beforeend", `<div id="prpr" class="prpr" style="visibility: visible;"><div class="live2d-tips"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+	document.body.insertAdjacentHTML("beforeend", `<div id="prpr" class="prpr" style="visibility: visible;"><div id="live2d-tips" class="live2d-tips"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
 				<span class="fa fa-lg fa-paper-plane"></span>
