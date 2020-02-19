@@ -6,7 +6,7 @@
 	position: fixed;
 	transform: translateY(3px);
 	transition: transform .3s ease-in-out, bottom 3s ease-in-out;
-	z-index: 1;
+	z-index: 10;
 }
 
 #waifu:hover {
@@ -399,7 +399,7 @@
    padding-bottom:5px;
    padding-left:0;
    font-weight:700;
-   z-index:299;
+   z-index:90;
    writing-mode:vertical-rl;
    transiton-property:margin-left,bottom;
    transition-duration:.5s,.5s
