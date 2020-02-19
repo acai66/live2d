@@ -58,7 +58,7 @@ function loadWidget(config) {
 			showMessage("愿你有一天能与重要的人重逢。", 2000, 11);
 			document.getElementById("waifu").style.bottom = "-400px";
 			setTimeout(() => {
-				document.getElementById("waifu").style.display = "none";
+				// document.getElementById("waifu").style.display = "none";
 			}, 3000);
 		});
 		var devtools = () => {};
@@ -293,9 +293,7 @@ function initWidget(config, apiPath = "/") {
 			} else {
 				localStorage.removeItem("waifu-display");
 				document.getElementById("waifu").style.display = "";
-				setTimeout(() => {
-					document.getElementById("waifu").style.bottom = 0;
-				}, 0);
+				document.getElementById("waifu").style.bottom = 0;
 			}		
 		}
 	});
