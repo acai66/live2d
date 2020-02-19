@@ -35,7 +35,7 @@ function loadWidget(config) {
 	if (!apiPath.endsWith("/")) apiPath += "/";
 	localStorage.removeItem("waifu-display");
 	sessionStorage.removeItem("waifu-text");
-	document.body.insertAdjacentHTML("beforeend", `<div id="prpr" class="prpr" style="visibility: visible;"><div id="live2d-tips" class="live2d-tips"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+	document.body.insertAdjacentHTML("beforeend", `<div id="prpr" class="prpr" style="visibility: visible;"><div id="waifu-tips" class="live2d-tips"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
 				<span class="fa fa-lg fa-paper-plane"></span>
@@ -163,7 +163,7 @@ function loadWidget(config) {
 			}
 			text = randomSelection(text);
 			sessionStorage.setItem("waifu-text", priority);
-			var tips = document.getElementById("live2d-tips");
+			var tips = document.getElementById("waifu-tips");
 			tips.innerHTML = text;
 			tips.classList.add("waifu-tips-active");
 			messageTimer = setTimeout(() => {

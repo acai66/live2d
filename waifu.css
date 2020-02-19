@@ -1,56 +1,4 @@
 
-.toggle-base {
-	background-color: #fa0;
-	border-radius: 5px;
-	color: #fff;
-	cursor: pointer;
-	font-size: 12px;
-	left: 0;
-	margin-left: -40px;
-	padding: 5px 2px 5px 5px;
-	position: fixed;
-	transition: margin-left 1s, bottom 1s;
-	width: 60px;
-	writing-mode: vertical-rl;
-	z-index: 5;
-}
-
-#waifu-toggle {
-	
-}
-.waifu-toggle-default {
-	bottom: 134px;
-}
-
-#waifu-switch {
-	background-color: #f7bb4d;
-}
-.waifu-switch-default {
-	bottom: 100px;
-}
-
-#waifu-change {
-	background-color: #eed099;
-}
-.waifu-change-default {
-	bottom: 66px;
-}
-
-
-.down1{
-	bottom: 66px;
-}
-.down2{
-	bottom: 32px;
-}
-.down3{
-	bottom: -2px;
-}
-
-.toggle-base:hover {
-	margin-left: -20px;
-}
-
 #waifu {
 	bottom: -1000px;
 	left: 10px;
@@ -377,7 +325,7 @@
 }
 .prpr #live2d {
  position:relative;
- z-index:200
+ z-index:80;
 }
 .live2d-tips {
  opacity:0;
