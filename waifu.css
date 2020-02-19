@@ -514,7 +514,7 @@
 @supports(-ms-ime-align:auto) {
  .live2d-tool {
   margin-left:0;
-  left:-17px;
+  left:17px;
   transiton-property:left,bottom
  }
  .live2d-tool:hover {
