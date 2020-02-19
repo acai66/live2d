@@ -82,7 +82,7 @@
 		"text": ["又见主人了。"]
 	}, {
 		"selector": "a[href^='http']",
-		"text": ["要去看看评论吗？"]
+		"text": ["要去看看 「 <span>{text}</span> 」么？？"]
 	}, {
 		"selector": ".cd-fade-out",
 		"text": ["点它就可以回到顶部啦！", "又回到最初的起点～", "要回到开始的地方么？"]
