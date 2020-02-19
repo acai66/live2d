@@ -279,8 +279,6 @@ function initWidget(config, apiPath = "/") {
 			apiPath
 		};
 	}
-	var window.cWidth = document.body.clientWidth;
-	window.onresize= function (){window.cWidth=document.body.clientWidth;}
 	document.body.insertAdjacentHTML("beforeend", `<div class="live2d-tool hide-live2d no-select" id="show_model"><div class="keys">Hide</div></div>
 		<div class="live2d-tool live2d-pio no-select" id="switch_live2d"><div class="keys">Tia</div></div>
 		<div class="live2d-tool switch-live2d no-select" id="switch_model"><div class="keys">Switch</div></div>
@@ -298,13 +296,13 @@ function initWidget(config, apiPath = "/") {
 	var toggle = document.getElementById("show_model");
 	toggle.addEventListener("click", () => {
 		"Hide" == getCookie("live2d") ? setTimeout(function() {
-                window.cWidth > 860 && ($(".hide-live2d").css("bottom", "66px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").addClass("hide-live2d-tool")),
+                document.body.clientWidth > 860 && ($(".hide-live2d").css("bottom", "66px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").addClass("hide-live2d-tool")),
                 $(".hide-live2d .keys").html("Show"),
 		document.querySelector("#waifu-tool .fa-times").click(),
                 setCookie("live2d", "Show", 7)
         },
         10) : setTimeout(function() {
-                window.cWidth > 860 && ($(".hide-live2d").css("bottom", "185px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").removeClass("hide-live2d-tool")),
+                document.body.clientWidth > 860 && ($(".hide-live2d").css("bottom", "185px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").removeClass("hide-live2d-tool")),
                 $(".hide-live2d .keys").html("Hide"),
 		localStorage.removeItem("waifu-display"),
 				document.getElementById("waifu").style.display = "",
