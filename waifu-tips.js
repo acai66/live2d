@@ -296,13 +296,13 @@ function initWidget(config, apiPath = "/") {
 	var toggle = document.getElementById("show_model");
 	toggle.addEventListener("click", () => {
 		"Hide" == getCookie("live2d") ? setTimeout(function() {
-                ($(".hide-live2d").css("bottom", "111px"), $(".close-live2d").css("bottom", "66px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").addClass("hide-live2d-tool")),
+                ($(".hide-live2d").css("bottom", "66px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").addClass("hide-live2d-tool")),
                 $(".hide-live2d .keys").html("Show"),
 		document.querySelector("#waifu-tool .fa-times").click(),
                 setCookie("live2d", "Show", 7)
         },
         10) : setTimeout(function() {
-                ($(".hide-live2d").css("bottom", "185px"), $(".close-live2d").css("bottom", "21px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").removeClass("hide-live2d-tool")),
+                ($(".hide-live2d").css("bottom", "185px"), $(".save-live2d, .switch-live2d, .live2d-pio, .live2d-tia").removeClass("hide-live2d-tool")),
                 $(".hide-live2d .keys").html("Hide"),
 		localStorage.removeItem("waifu-display"),
 				document.getElementById("waifu").style.display = "",
