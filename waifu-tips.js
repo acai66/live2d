@@ -35,7 +35,9 @@ function loadWidget(config) {
 	if (!apiPath.endsWith("/")) apiPath += "/";
 	localStorage.removeItem("waifu-display");
 	sessionStorage.removeItem("waifu-text");
-	document.body.insertAdjacentHTML("beforeend", `<div id="prpr" class="prpr" style="visibility: visible;"><div id="waifu-tips" class="live2d-tips"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+	document.body.insertAdjacentHTML("beforeend", `<div id="waifu">
+			<div id="waifu-tips"></div>
+			<canvas id="live2d" width="300" height="300"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
 				<span class="fa fa-lg fa-paper-plane"></span>
@@ -287,6 +289,9 @@ function initWidget(config, apiPath = "/") {
 	});
 	document.getElementById("switch_live2d").addEventListener("click", () => {
 		document.querySelector("#waifu-tool .fa-user-circle").click();
+	});
+	document.getElementById("save_pic").addEventListener("click", () => {
+		document.querySelector("#waifu-tool .fa-camera-retro").click();
 	});
 	var toggle = document.getElementById("show_model");
 	toggle.addEventListener("click", () => {

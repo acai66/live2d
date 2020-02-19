@@ -10,13 +10,27 @@
 }
 
 #waifu:hover {
-	transform: translateY(0);
+ -webkit-transform:translateY(0);
+ transform:translateY(0)
 }
 
-@media (max-width: 768px) {
-	#waifu {
-		display: none;
-	}
+@media(max-width:860px) {
+ #waifu {
+  transform:scale(.8) translate(-30px,31px)
+ }
+ #waifu:hover {
+  -webkit-transform:scale(.8) translate(-30px,31px);
+  transform:scale(.8) translate(-30px,31px)
+ }
+}
+@media(max-width:560px) {
+ #waifu {
+  transform:scale(.5) translate(-150px,125px)
+ }
+ #waifu:hover {
+  -webkit-transform:scale(.5) translate(-150px,125px);
+  transform:scale(.5) translate(-150px,125px)
+ }
 }
 
 #waifu-tips {
@@ -286,70 +300,6 @@
 	}
 }
 
-.prpr {
- position:fixed;
- bottom:0;
- left:0;
- z-index:99;
- font-size:0;
- transition:all .3s ease-in-out;
- -webkit-transform:translateY(3px);
- transform:translateY(3px);
- cursor:grab;
- user-select:none
-}
-.prpr:hover {
- -webkit-transform:translateY(0);
- transform:translateY(0)
-}
-.prpr:active {
- cursor:grabbing
-}
-@media(max-width:860px) {
- .prpr {
-  transform:scale(.8) translate(-30px,31px)
- }
- .prpr:hover {
-  -webkit-transform:scale(.8) translate(-30px,31px);
-  transform:scale(.8) translate(-30px,31px)
- }
-}
-@media(max-width:560px) {
- .prpr {
-  transform:scale(.5) translate(-150px,125px)
- }
- .prpr:hover {
-  -webkit-transform:scale(.5) translate(-150px,125px);
-  transform:scale(.5) translate(-150px,125px)
- }
-}
-.prpr #live2d {
- position:relative;
- z-index:80;
-}
-.live2d-tips {
- opacity:0;
- width:250px;
- height:auto;
- min-height:70px;
- margin:-20px 20px;
- padding:5px 10px;
- border-radius:12px;
- box-sizing:border-box;
- box-shadow:0 0 2px 0 rgba(0,0,0,.12),0 2px 2px 0 rgba(0,0,0,.24);
- transition:box-shadow .2s ease;
- background:#fafafa;
- color:#333;
- font-size:12px;
- text-overflow:ellipsis;
- overflow:hidden;
- position:absolute;
- animation-delay:5s;
- animation-duration:50s;
- animation-iteration-count:infinite;
- animation-name:shake;
- animation-timing-function:ease-in-out
-}
 .live2d-tool {
  position:fixed;
  bottom:0;
@@ -449,7 +399,7 @@
    padding-bottom:5px;
    padding-left:0;
    font-weight:700;
-   z-index:99;
+   z-index:299;
    writing-mode:vertical-rl;
    transiton-property:margin-left,bottom;
    transition-duration:.5s,.5s
