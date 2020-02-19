@@ -423,6 +423,7 @@
  position:relative
 }
 .hide-live2d {
+ bottom:0px;
  visibility:visible
 }
 .close-live2d {
