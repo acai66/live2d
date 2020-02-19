@@ -35,7 +35,7 @@ function loadWidget(config) {
 	if (!apiPath.endsWith("/")) apiPath += "/";
 	localStorage.removeItem("waifu-display");
 	sessionStorage.removeItem("waifu-text");
-	document.body.insertAdjacentHTML("beforeend", `<div class="prpr" style="visibility: visible;"><div class="live2d-tips"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas></div>
+	document.body.insertAdjacentHTML("beforeend", `<div class="prpr" style="visibility: visible;"><div class="live2d-tips"></div><canvas id="live2d" width="280" height="250" class="live2d"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
 				<span class="fa fa-lg fa-paper-plane"></span>
@@ -288,9 +288,6 @@ function initWidget(config, apiPath = "/") {
 	document.getElementById("switch_live2d").addEventListener("click", () => {
 		document.querySelector("#waifu-tool .fa-user-circle").click();
 	});
-	//document.getElementById("waifu-toggle").classList.add("waifu-toggle-default");
-	//document.getElementById("waifu-switch").classList.add("waifu-switch-default");
-	//document.getElementById("waifu-change").classList.add("waifu-change-default");
 	var toggle = document.getElementById("show_model");
 	toggle.addEventListener("click", () => {
 		"Hide" == getCookie("live2d") ? setTimeout(function() {
