@@ -1018,8 +1018,6 @@ a:hover {
 
 .gizle {
     top: -100px;
-    /****/
-    top: 0;
     z-index: 9999;
 }
 
