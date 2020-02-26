@@ -146,7 +146,7 @@
 		"selector": ".comment-textarea",
 		"text": ["想要去评论些什么吗？", "要说点什么吗？", "觉得博客不错？快来留言和主人交流吧！"]
 	}, {
-		"selector": ".",
+		"selector": ".comment-textarea",
 		"text": ["你会不会熟练使用 Markdown 呀？", "使用 Markdown 让评论更美观吧～"]
 	}, {
 		"selector": ".emotion-toggle-off",
