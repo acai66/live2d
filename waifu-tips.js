@@ -98,7 +98,7 @@ function loadWidget(config) {
 
 	(function welcomeMessage() {
 		var text;
-		if (location.pathname === "/") { // 如果是主页
+		if (document.referrer !== "") { // 如果是主页
 			var now = new Date().getHours();
 			if (now > 5 && now <= 7) text = "早上好！一日之计在于晨，美好的一天就要开始了。";
 			else if (now > 7 && now <= 11) text = "上午好！工作顺利嘛，不要久坐，多起来走动走动哦！";
@@ -108,7 +108,7 @@ function loadWidget(config) {
 			else if (now > 19 && now <= 21) text = "晚上好，今天过得怎么样？";
 			else if (now > 21 && now <= 23) text = ["已经这么晚了呀，早点休息吧，晚安～", "深夜时要爱护眼睛呀！"];
 			else text = "你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？";
-		} else if (document.referrer !== "") {
+		} else if (location.pathname === "/") {
 			var referrer = new URL(document.referrer),
 				domain = referrer.hostname.split(".")[1];
 			if (location.hostname === referrer.hostname) text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
