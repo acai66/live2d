@@ -432,6 +432,8 @@ if (document.body.clientWidth <= 860) {
     function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+	$(".site-header").addClass("sabit");
+        $(".openNav").addClass("sabit");
     }
 }
 
